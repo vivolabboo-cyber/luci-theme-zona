@@ -1,0 +1,19 @@
+{% http.prepare_content('text/html; charset=UTF-8'); %}
+<!DOCTYPE html>
+<html lang="{{ dispatcher.lang }}" data-zona-mode="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#111713">
+<title>{{ hostname }} · {{ dispatcher.lang == 'ru' ? 'ЗОНА' : 'ZONA' }} / OpenWrt</title>
+<meta name="zona-menu-icons" content="status.svg system.svg network.svg services.svg logout.svg default.svg">
+<link rel="icon" href="{{ media }}/zona.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{ media }}/css/cascade.css?v=1.1.0">
+{% if (node?.css): %}<link rel="stylesheet" href="{{ resource }}/{{ node.css }}">{% endif %}
+{% if (css): %}<style>{{ css }}</style>{% endif %}
+<link rel="stylesheet" href="{{ media }}/css/zona.css?v=1.1.0">
+{% if (!is_login): %}
+<script src="{{ dispatcher.build_url('admin/translations', dispatcher.lang) }}?v={{ version.luciversion }}"></script>
+<script src="{{ resource }}/cbi.js?v={{ version.luciversion }}"></script>
+<script src="{{ resource }}/luci.js?v={{ version.luciversion }}"></script>
+{% endif %}
+</head>

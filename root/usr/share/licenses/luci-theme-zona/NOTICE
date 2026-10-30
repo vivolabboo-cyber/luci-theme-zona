@@ -1,0 +1,5 @@
+Zona 1.0.0, custom theme, 2026.
+Derived CSS and menu from luci-theme-argon 3.1.1 (Jerrykuku), luci-theme-material (Lutty Yang) and OpenWrt LuCI contributors. Apache-2.0.
+Original Zona templates, styling and summary added in 2026. No Argon package or backend dependency.
+Oswald font: Vernon Adams, Kalapi Gajjar, Cyreal; SIL Open Font License 1.1.
+Sarcophagus background generated with OpenAI image generation.

@@ -1,0 +1,28 @@
+{%
+const t = (en, ru) => dispatcher.lang == 'ru' ? ru : en;
+const hostname = striptags(ubus.call('system', 'board')?.hostname ?? '?');
+include('themes/' + theme + '/head', {hostname: hostname, is_login: true});
+%}
+<body class="zona-login lang_{{ dispatcher.lang }}">
+<main class="zona-login-main">
+<div class="zona-wordmark">{{ t("ZONA", "ЗОНА") }}</div>
+<h1>{{ t("NETWORK CONTROL", "УПРАВЛЕНИЕ СЕТЬЮ") }}</h1>
+<p class="zona-machine">OPENWRT · {{ hostname }}</p>
+<h2 class="zona-login-heading"><span aria-hidden="true">▶</span> {{ t("SIGN IN TO SYSTEM", "ВОЙТИ В СИСТЕМУ") }}</h2>
+<form method="post" class="zona-auth">
+{% if (fuser): %}<div role="alert" class="zona-login-error">{{ t("Invalid username or password. Please try again.", "Неверное имя пользователя или пароль. Попробуйте ещё раз.") }}</div>{% endif %}
+<label for="zona-user">{{ t("Username", "Пользователь") }}</label>
+<input id="zona-user" type="text" name="luci_username" autocomplete="username" value="{{ entityencode(duser ?? 'root', true) }}" required spellcheck="false" autocapitalize="none">
+<label for="zona-pass">{{ t("Password", "Пароль") }}</label>
+<div class="zona-password"><input id="zona-pass" type="password" name="luci_password" autocomplete="current-password"><button type="button" id="zona-eye" aria-label="{{ t('Show password', 'Показать пароль') }}" aria-pressed="false">◉</button></div>
+<button class="zona-enter" type="submit">{{ t('SIGN IN', 'ВОЙТИ') }} <span aria-hidden="true">→</span></button>
+</form>
+<p class="zona-local">{{ t('Local access', 'Локальный доступ') }} <span>·</span> <span id="zona-address"></span></p>
+<div class="zona-login-foot">{{ t('CHORNOBYL / REACTOR 04', 'ЧАЭС / ЭНЕРГОБЛОК 04') }} <span>{{ t('ZONA', 'ЗОНА') }} · 1.1.0</span></div>
+</main>
+<script>
+document.getElementById('zona-address').textContent=location.hostname;
+document.getElementById('zona-pass').focus();
+document.getElementById('zona-eye').addEventListener('click',function(){var p=document.getElementById('zona-pass');var show=p.type==='password';p.type=show?'text':'password';this.setAttribute('aria-pressed',show?'true':'false');this.setAttribute('aria-label',document.documentElement.lang==='ru'?(show?'Скрыть пароль':'Показать пароль'):(show?'Hide password':'Show password'));});
+</script>
+</body></html>
