@@ -18,7 +18,7 @@ include('themes/' + theme + '/head', {hostname: hostname, is_login: true});
 <button class="zona-enter" type="submit">{{ t('SIGN IN', 'ВОЙТИ') }} <span aria-hidden="true">→</span></button>
 </form>
 <p class="zona-local">{{ t('Local access', 'Локальный доступ') }} <span>·</span> <span id="zona-address"></span></p>
-<div class="zona-login-foot">{{ t('CHORNOBYL / REACTOR 04', 'ЧАЭС / ЭНЕРГОБЛОК 04') }} <span>{{ t('ZONA', 'ЗОНА') }} · 1.1.0</span></div>
+<div class="zona-login-foot">{{ t('CHORNOBYL / REACTOR 04', 'ЧАЭС / ЭНЕРГОБЛОК 04') }} <span>{{ t('ZONA', 'ЗОНА') }} · 1.1.1</span></div>
 </main>
 <script>
 document.getElementById('zona-address').textContent=location.hostname;

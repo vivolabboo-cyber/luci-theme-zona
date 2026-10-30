@@ -6,7 +6,7 @@
 
 [English](README.en.md) · [Безопасность](SECURITY.md) · [Лицензия](LICENSE)
 
-![Version](https://img.shields.io/badge/version-1.1.0-d5a34c) ![OpenWrt](https://img.shields.io/badge/OpenWrt-25.12%20%2F%20ucode-334b35) ![Languages](https://img.shields.io/badge/languages-RU%20%7C%20EN-7d9b65)
+![Version](https://img.shields.io/badge/version-1.1.1-d5a34c) ![OpenWrt](https://img.shields.io/badge/OpenWrt-25.12%20%2F%20ucode-334b35) ![Languages](https://img.shields.io/badge/languages-RU%20%7C%20EN-7d9b65)
 
 ## Что внутри
 
@@ -22,6 +22,24 @@
 Проверялась исходная версия на Raspberry Pi 4 / OpenWrt 25.12.6 / LuCI с ucode-шаблонами. Старые Lua-only LuCI не поддерживаются. Двуязычная версия проверена локально; совместимость с другими прошивками не гарантируется.
 
 ## Установка
+
+Через SSH от root скачайте установщик:
+
+```sh
+wget -O /tmp/luci-theme-zona-install.sh https://github.com/vivolabboo-cyber/luci-theme-zona/releases/download/v1.1.1/bootstrap.sh
+```
+
+Просмотрите скрипт, затем запустите:
+
+```sh
+sh /tmp/luci-theme-zona-install.sh --activate
+```
+
+Установщик скачивает фиксированную версию по HTTPS и проверяет SHA-256 архива. Контрольная сумма не заменяет подпись: источником доверия остаются GitHub и сам установщик.
+
+`--activate` сразу включает тему.
+
+Ручная установка:
 
 1. Скачайте исходники или архив релиза и проверьте SHA256SUMS.
 2. Скопируйте каталог на роутер. Не выполняйте непроверенные удалённые скрипты через `curl | sh`.

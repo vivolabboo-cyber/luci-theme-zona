@@ -7,10 +7,10 @@
 <title>{{ hostname }} · {{ dispatcher.lang == 'ru' ? 'ЗОНА' : 'ZONA' }} / OpenWrt</title>
 <meta name="zona-menu-icons" content="status.svg system.svg network.svg services.svg logout.svg default.svg">
 <link rel="icon" href="{{ media }}/zona.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{{ media }}/css/cascade.css?v=1.1.0">
+<link rel="stylesheet" href="{{ media }}/css/cascade.css?v=1.1.1">
 {% if (node?.css): %}<link rel="stylesheet" href="{{ resource }}/{{ node.css }}">{% endif %}
 {% if (css): %}<style>{{ css }}</style>{% endif %}
-<link rel="stylesheet" href="{{ media }}/css/zona.css?v=1.1.0">
+<link rel="stylesheet" href="{{ media }}/css/zona.css?v=1.1.1">
 {% if (!is_login): %}
 <script src="{{ dispatcher.build_url('admin/translations', dispatcher.lang) }}?v={{ version.luciversion }}"></script>
 <script src="{{ resource }}/cbi.js?v={{ version.luciversion }}"></script>

@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eu
 [ "$(id -u)" -eq 0 ] || { echo 'Run as root on OpenWrt.' >&2; exit 1; }
+[ -f /etc/openwrt_release ] || { echo 'This installer requires OpenWrt.' >&2; exit 1; }
+[ -f /usr/share/ucode/luci/runtime.uc ] || [ -d /usr/share/ucode/luci/template ] || { echo 'ucode-based LuCI is required.' >&2; exit 1; }
+command -v uci >/dev/null || { echo 'LuCI/UCI is required.' >&2; exit 1; }
+[ -f /etc/config/luci ] || { echo 'LuCI configuration is missing.' >&2; exit 1; }
 cd "$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 umask 077
 backup="/root/zona-backup-$(date +%Y%m%d-%H%M%S)-$$"

@@ -1,5 +1,5 @@
 </div>
-<footer class="mobile-hide"><div class="footer-content"><span>{{ dispatcher.lang == 'ru' ? 'ЗОНА' : 'ZONA' }} / 1.1.0</span><span>{{ version.distname }} {{ version.distversion }} · {{ version.luciname }}</span><ul class="breadcrumb pull-right" id="modemenu" style="display:none"></ul></div></footer>
+<footer class="mobile-hide"><div class="footer-content"><span>{{ dispatcher.lang == 'ru' ? 'ЗОНА' : 'ZONA' }} / 1.1.1</span><span>{{ version.distname }} {{ version.distversion }} · {{ version.luciname }}</span><ul class="breadcrumb pull-right" id="modemenu" style="display:none"></ul></div></footer>
 </div></div>
 <script>var luciLocation = {{ ctx.path }};</script>
 <script>L.require('menu-zona');if(['admin-status','admin-status-overview'].includes(document.body.dataset.page))L.require('zona-overview');</script>

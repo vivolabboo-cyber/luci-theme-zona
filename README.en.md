@@ -12,6 +12,24 @@ Custom login using standard LuCI authentication; responsive sidebar and forms; R
 
 ## Install and recover
 
+Over SSH as root, download the installer:
+
+```sh
+wget -O /tmp/luci-theme-zona-install.sh https://github.com/vivolabboo-cyber/luci-theme-zona/releases/download/v1.1.1/bootstrap.sh
+```
+
+Review the script, then run:
+
+```sh
+sh /tmp/luci-theme-zona-install.sh --activate
+```
+
+The installer downloads a pinned release over HTTPS and checks the archive SHA-256. A checksum is not a signature: you still trust GitHub and the installer.
+
+`--activate` enables the theme immediately.
+
+Manual installation:
+
 Requires ucode-based LuCI. The original version was tested on Raspberry Pi 4 / OpenWrt 25.12.6. The bilingual version is locally tested; compatibility with other firmware versions is not guaranteed.
 
 Download sources or a release archive, verify SHA256SUMS, copy to your router, and keep a normal OpenWrt backup plus working SSH and Bootstrap fallback. Run `sh install.sh --activate` as root. The script saves overwritten files and LuCI configuration under private `/root/zona-backup-*`; omitting `--activate` only registers the theme. Refresh the browser. Choose English or Russian under System → System → Language and Style. Standard Russian pages require `luci-i18n-base-ru`.

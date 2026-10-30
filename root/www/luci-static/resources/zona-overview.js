@@ -1,4 +1,4 @@
-/* Zona theme 1.1.0: read-only live summary. */
+/* Zona theme 1.1.1: read-only live summary. */
 'use strict';
 'require baseclass';
 'require rpc';
